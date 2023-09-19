@@ -1,0 +1,70 @@
+.problemWeSolve {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    gap: 10px;
+    margin: 60px 0px;
+    padding: 60px 0;
+
+    font-size: 14px;
+    font-weight: 300;
+    text-align: right;
+}
+
+.problemWeSolve>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.problemWeSolve h1 {
+    font-size: 40px;
+    margin: 15px 0;
+}
+
+
+.problemWeSolve button {
+    padding: 12px 30px;
+    color: #fff;
+    border: 1px solid #ffffffd3;
+    background-color: #203956;
+    margin: 28px 0;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 8px;
+    text-align: right;
+    align-self: flex-start;
+}
+
+.problemWeSolve>div>button:hover {
+    background-color: #ffffff1a;
+}
+
+
+.problemWeSolve img {
+    width: 170px;
+}
+
+.divider {
+    position: absolute;
+    background: linear-gradient(114deg, rgba(97, 134, 155, .3) 20.26%, rgba(27, 51, 81, .3) 87.28%);
+    backdrop-filter: blur(30px);
+    height: 5px;
+    left: 0;
+    right: 0;
+}
+
+@media screen and (min-width:768px) {
+    .problemWeSolve {
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    .problemWeSolve img {
+        margin-left: 10%;
+    }
+
+    .problemWeSolve>div {
+        width: 60%;
+    }
+}

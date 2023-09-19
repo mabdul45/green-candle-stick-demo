@@ -1,0 +1,33 @@
+.header {
+    margin: 25px auto;
+}
+
+.header,
+.header ul,
+.header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header nav ul {
+    display: none;
+    list-style: none;
+    gap: 37px;
+}
+
+.header nav {
+    gap: 100px;
+}
+
+.header>img {
+    width: 60px;
+}
+
+@media screen and (min-width: 720px) {
+    .header nav ul {
+        display: flex;
+        list-style: none;
+        gap: 37px;
+    }
+}

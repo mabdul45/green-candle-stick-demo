@@ -1,0 +1,24 @@
+.tokenomics {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.tokenomics h1 {
+    font-size: 40px;
+    margin: 15px 0;
+}
+
+.tokenomics img {
+    width: 40%;
+    margin-top: 20px;
+
+}
+
+.divider {
+    position: absolute;
+    background: linear-gradient(114deg, rgba(27, 51, 81, .3) 15.8%, rgba(97, 134, 155, .3) 92.73%);
+    backdrop-filter: blur(30px);
+    height: 5px;
+    left: 0;
+    right: 0;
+}

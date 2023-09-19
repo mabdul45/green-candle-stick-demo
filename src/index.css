@@ -1,0 +1,20 @@
+body {
+  background-color: rgb(27, 51, 81);
+  width: 95%;
+  max-width: 1150px;
+  margin: 0px auto;
+  font-family: Mulish, sans-serif;
+  color: rgb(255, 255, 255);
+}
+
+html {
+  font-family: 'Mulish', sans-serif;
+}
+
+img {
+  object-fit: cover;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
