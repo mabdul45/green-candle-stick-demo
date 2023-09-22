@@ -42,7 +42,7 @@ const Stake = () => {
             }
         })()
 
-    }, [isConnected, address, daily, message, chain.id])
+    }, [isConnected, address, daily, message, chain?.id])
 
     useEffect(() => {
         const interval = setInterval(async () => {
@@ -50,7 +50,7 @@ const Stake = () => {
         }, 3000);
 
         return () => clearInterval(interval)
-    }, [isConnected, address, chain.id])
+    }, [isConnected, address, chain?.id])
 
     return (
         <section className={styles.stake}>

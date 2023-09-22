@@ -25,7 +25,7 @@ const AppHome = () => {
                 console.log('switching');
             })()
         }
-    }, [isConnected, chain])
+    }, [isConnected, chain?.id])
 
     return (
         <>
