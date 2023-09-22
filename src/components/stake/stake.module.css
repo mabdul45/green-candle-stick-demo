@@ -20,6 +20,7 @@
 .stake .background {
     background-color: #1b3351;
     border-radius: 20px;
+    position: relative;
 
 }
 
@@ -134,9 +135,9 @@
 .overlay {
     background-color: rgba(0, 0, 0, 0.596);
     position: absolute;
-    height: 99%;
-    width: 99.7%;
-    padding: 1px;
+    height: 100%;
+    width: 100%;
+    /* padding: 1px; */
     border-radius: 20px;
 }
 

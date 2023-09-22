@@ -11,15 +11,11 @@ const Header = () => {
             <img src={getImageUrl("gcslogo.png")} alt="dvsr" />
             <nav>
                 <ul>
-                    <li>Stake GTC</li>
-                    <li>About GTC</li>
-                    <li>Tokenomics</li>
+                    <li><a href="#">Stake GTC</a> </li>
+                    <li><a href="#">About GTC</a></li>
+                    <li><a href="#">Tokenomics</a></li>
                 </ul>
-                <Web3Button icon="show" label="Connect Wallet" balance="show" />
-                <br />
-
-                <Web3NetworkSwitch />
-                <br />
+                <Web3Button styles={{ overflow: 'hidden' }} icon='hide' label="Connect Wallet" />
             </nav>
         </header >
     )

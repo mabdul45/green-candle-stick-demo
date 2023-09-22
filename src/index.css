@@ -5,10 +5,12 @@ body {
   margin: 0px auto;
   font-family: Mulish, sans-serif;
   color: rgb(255, 255, 255);
+  overflow: auto;
 }
 
 html {
   font-family: 'Mulish', sans-serif;
+  overflow-x: hidden;
 }
 
 img {
@@ -17,4 +19,18 @@ img {
 
 ::-webkit-scrollbar {
   width: 0;
+}
+
+input[type=number] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  opacity: 0;
+}
+
+button {
+  font-family: 'Mulish', sans-serif;
 }
