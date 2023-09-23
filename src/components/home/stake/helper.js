@@ -1,6 +1,6 @@
 import { BigNumber, ethers } from 'ethers'
-import { GCSCONTRACT, GCSABI, STAKECONTRACT, STAKEABI } from '../config'
-import { notificationActions } from '../../store/notification/notificationSlice';
+import { notificationActions } from '../../../store/notification/notificationSlice';
+import { GCSCONTRACT, GCSABI, STAKECONTRACT, STAKEABI } from '../../config';
 
 
 export const valueFee = {
@@ -20,7 +20,7 @@ export function numberToTwoDecimals(num) {
 
 export const handleClaim = async (e, dispatch, userDetails) => {
     e.preventDefault()
-
+    dispatch(notificationActions.setNotify(true))
     if (userDetails.claimable <= 0) {
         dispatch(notificationActions.setMessage('You don\'t have any rewards to claim'))
         return
@@ -32,6 +32,8 @@ export const handleClaim = async (e, dispatch, userDetails) => {
         const contract = new ethers.Contract(STAKECONTRACT, STAKEABI, getSigner);
 
         try {
+            dispatch(notificationActions.setLoading(true))
+            console.log('claiming');
             const response = await contract.claim(valueFee);
             response.wait()
             dispatch(notificationActions.setMessage(`${userDetails.claimable} Rewards Claimed`))
@@ -104,6 +106,7 @@ export const checkApproved = async (address, setApproved) => {
 
 export const handleStakingApproval = async (e, dispatch, setApproved) => {
     e.preventDefault()
+    dispatch(notificationActions.setNotify(true))
     if (window.ethereum) {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         const signer = provider.getSigner()
@@ -121,8 +124,8 @@ export const handleStakingApproval = async (e, dispatch, setApproved) => {
 
 export const submitStake = async (e, dispatch, stakeVal, GCSBalance) => {
     e.preventDefault();
-
     const minimum = 1;
+    dispatch(notificationActions.setNotify(true))
 
     if (Number(stakeVal) > Number(GCSBalance) || Number(stakeVal) === 0 || Number(stakeVal) < Number(minimum)) {
         dispatch(notificationActions.setMessage(`You cannot stake this amount ${stakeVal}`))
@@ -134,8 +137,8 @@ export const submitStake = async (e, dispatch, stakeVal, GCSBalance) => {
         const signer = provider.getSigner()
         const contract = new ethers.Contract(STAKECONTRACT, STAKEABI, signer)
         try {
-            console.log(stakeVal, 'stake value');
-            const response = await contract.stake(Math.floor(stakeVal), valueFee)
+            const response = await contract.stake(Math.floor(Number(stakeVal)), valueFee)
+            console.log(response, 'stake response');
             await response.wait()
             dispatch(notificationActions.setMessage('Staking Successful'))
         } catch (error) {
@@ -147,6 +150,7 @@ export const submitStake = async (e, dispatch, stakeVal, GCSBalance) => {
 
 export const submitUnStake = async (e, dispatch, userDetails, unStakeVal) => {
     e.preventDefault()
+    dispatch(notificationActions.setNotify(true))
 
     if (Number(userDetails.stakedAmount) < Number(unStakeVal) || Number(unStakeVal) === 0) {
         dispatch(notificationActions.setMessage(`You cannot unstake this amount ${unStakeVal}`))

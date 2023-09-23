@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     message: '',
-    loading: ''
+    loading: false,
+    notify: false
 }
 
 const notificationSlice = createSlice({
@@ -10,10 +11,14 @@ const notificationSlice = createSlice({
     initialState,
     reducers: {
         setMessage(state, action) {
+            state.loading = false
             state.message = action.payload
         },
         setLoading(state, action) {
             state.loading = action.payload
+        },
+        setNotify(state, action) {
+            state.notify = action.payload
         }
     }
 })

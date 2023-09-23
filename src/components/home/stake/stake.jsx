@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import styles from './stake.module.css';
-import { getImageUrl } from '../../helpers/utils';
-import { getAPR, getDaily, getDistributedRewards, getGCSBalance, getUserDetails, handleStakingApproval, submitStake, submitUnStake, checkApproved, handleClaim } from './helper'
-import { useDispatch, useSelector } from 'react-redux';
+import { getAPR, getDaily, getDistributedRewards, getGCSBalance, getUserDetails, handleStakingApproval, submitStake, submitUnStake, checkApproved, handleClaim } from '../stake/helper';
+import { getImageUrl } from '../../../helpers/utils';
+import numberWithCommas from '../../../helpers/commaSeperator';
 
+import { useDispatch, useSelector } from 'react-redux';
 import { useAccount, useNetwork } from 'wagmi'
-import numberWithCommas from '../../helpers/commaSeperator';
+
+
 
 const Stake = () => {
+
     const [stakeVal, setStakeVal] = useState(500)
     const [unStakeVal, setUnStakeVal] = useState(1)
     const [approved, setApproved] = useState(false)
@@ -92,13 +95,13 @@ const Stake = () => {
 
                         <form onSubmit={approved ? (e) => submitStake(e, dispatch, stakeVal, GCSBalance) : (e) => handleStakingApproval(e, dispatch, setApproved)} action="">
                             <label htmlFor="">GCT in wallet: {numberWithCommas(GCSBalance)}</label>
-                            <input type="number" value={stakeVal} onChange={(e) => setStakeVal(e.target.val)} id='stake' />
+                            <input type="number" value={stakeVal} onChange={(e) => setStakeVal(e.target.value)} id='stake' />
                             <button type='submit'> {approved ? 'Stake' : 'Approve'}</button>
                         </form>
 
                         <form onSubmit={approved ? (e) => submitUnStake(e, dispatch, userDetails, unStakeVal) : (e) => handleStakingApproval(e, dispatch, setApproved)} action="">
                             <label htmlFor="unstake">GCT Staked: {numberWithCommas(userDetails.stakedAmount)}</label>
-                            <input type="number" value={unStakeVal} onChange={(e) => setUnStakeVal(e.target.val)} name="" id="unstake" />
+                            <input type="number" value={unStakeVal} onChange={(e) => setUnStakeVal(e.target.value)} name="" id="unstake" />
                             <button type='submit' >{approved ? "UnStake" : "Approve"}</button>
                         </form>
 

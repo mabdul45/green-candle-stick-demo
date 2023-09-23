@@ -1,9 +1,9 @@
 import Header from '../components/header/header'
-import Hero from '../components/hero/hero'
-import Stake from '../components/stake/stake'
-import About from '../components/about/about'
-import Tokenomics from '../components/tokenomics/tokenomics'
-import ProblemWeSolve from '../components/problemWeSolve/problemWeSolve'
+import Hero from '../components/home/hero/hero'
+import Stake from '../components/home/stake/stake'
+import About from '../components/home/about/about'
+import Tokenomics from '../components/home/tokenomics/tokenomics'
+import ProblemWeSolve from '../components/home/problemWeSolve/problemWeSolve'
 import Footer from '../components/footer/footer';
 import Message from '../components/message/message'
 import { useSelector } from 'react-redux';
@@ -13,7 +13,7 @@ import { switchNetwork } from '@wagmi/core'
 
 const AppHome = () => {
 
-    const { message } = useSelector(state => state.notification)
+    const { message, loading, notify } = useSelector(state => state.notification)
     const { isConnected } = useAccount()
     const { chain } = useNetwork()
 
@@ -29,7 +29,7 @@ const AppHome = () => {
 
     return (
         <>
-            {message !== '' && <Message message={message} />}
+            {notify && <Message message={message} loading={loading} notify={notify} />}
             <Header />
             <Hero />
             <Stake />

@@ -1,6 +1,6 @@
 import React from 'react'
-import { getImageUrl } from '../../helpers/utils'
 import styles from './problemWeSolve.module.css';
+import { getImageUrl } from '../../../helpers/utils';
 
 const ProblemWeSolve = () => {
     return (<>
@@ -14,7 +14,7 @@ const ProblemWeSolve = () => {
             </div>
         </section>
         <div className={styles.divider}></div>
-        </>
+    </>
     )
 }
 
