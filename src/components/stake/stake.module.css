@@ -1,15 +1,18 @@
 .stake {
     font-size: 13px;
-    margin: 60px 0px;
+    margin: 60px auto;
     min-height: 250px;
     background: linear-gradient(180deg, #3767A3 0%, #233A52 100%);
     border-radius: 20px;
     padding: 1px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 40px 40px #00000040;
+    border-radius: 20px;
+    /* backdrop-filter: blur(30px); */
+    filter: drop-shadow(0 0 5px #00000040);
     user-select: none;
     position: relative;
+    width: 98%;
 }
 
 .stake img {
@@ -25,10 +28,10 @@
 }
 
 .stake .backgroundGradient {
-    /* border-radius: 20px; */
+    border-radius: 20px;
     min-height: 250px;
     background: linear-gradient(114deg, rgba(27, 51, 81, .3) 15.8%, rgba(97, 134, 155, .3) 92.73%);
-    padding: 20px;
+    padding: 70px 15px;
     overflow-x: hidden;
 }
 
@@ -156,4 +159,9 @@
     .stake .forms {
         grid-template-columns: 1fr 1fr;
     }
+
+    .stake .backgroundGradient {
+        padding: 20px;
+    }
+
 }

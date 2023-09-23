@@ -18,8 +18,14 @@ export function numberToTwoDecimals(num) {
     }
 }
 
-export const handleClaim = async (e, dispatch) => {
+export const handleClaim = async (e, dispatch, userDetails) => {
     e.preventDefault()
+
+    if (userDetails.claimable <= 0) {
+        dispatch(notificationActions.setMessage('You don\'t have any rewards to claim'))
+        return
+    }
+
     if (window.ethereum) {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const getSigner = provider.getSigner();
@@ -28,7 +34,7 @@ export const handleClaim = async (e, dispatch) => {
         try {
             const response = await contract.claim(valueFee);
             response.wait()
-            dispatch(notificationActions.setMessage('Rewards Claimed'))
+            dispatch(notificationActions.setMessage(`${userDetails.claimable} Rewards Claimed`))
         } catch (error) {
             dispatch(notificationActions.setMessage(error.reason))
         }

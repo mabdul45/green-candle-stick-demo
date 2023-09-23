@@ -5,6 +5,7 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    width: 100%;
 }
 
 .footer ul {
@@ -12,7 +13,7 @@
     align-items: center;
     justify-content: space-between;
     list-style: none;
-    gap: 40px;
+    gap: 20vw;
     padding: 0;
     margin: 0;
 }

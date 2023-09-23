@@ -24,7 +24,10 @@ const Message = ({ message }) => {
             <div className={styles.overlay}>
                 <div className={styles.messageContainer}>
                     <div className={styles.message}>
-                        {message}
+                        <p>{message}</p>
+                        <div className={styles.linearactivity}>
+                            <div className={styles.indeterminate}></div>
+                        </div>
                     </div>
                 </div>
             </div>

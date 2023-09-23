@@ -64,7 +64,7 @@ const Stake = () => {
                 }
                 <div className={styles.backgroundGradient}>
 
-                    <button type="submit" onClick={(e) => handleClaim(e, dispatch)} className={styles.claim}>CLaim {numberWithCommas(userDetails.claimable)} GCT </button>
+                    <button type="submit" onClick={(e) => handleClaim(e, dispatch, userDetails)} className={styles.claim}>CLaim {numberWithCommas(userDetails.claimable)} GCT </button>
 
                     <div className={styles.stakeHeader}>
                         <div className={styles.title}>
